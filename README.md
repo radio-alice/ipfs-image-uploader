@@ -1,5 +1,7 @@
 ## Instructions
 
+First, start off by forking this repository, and cloning it locally.
+
 A user using this program should be able to do the following things:
 
 - Upload one or more image files and store them on IPFS.
