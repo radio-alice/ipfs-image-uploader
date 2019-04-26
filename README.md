@@ -4,7 +4,7 @@ First, start off by forking this repository, and cloning it locally.
 
 A user using this program should be able to do the following things:
 
-- Upload one or more image files and store them on IPFS.
+- Upload one or more image files (simultaneously) and store them on IPFS.
 - Once the images are successfully uploaded and stored, the user should see the images on the screen, as well as their [unique content hashes](https://github.com/multiformats/cid).
 - Fetch an image by its unique hash - this can just be a simple text field where a user can paste in a hash and click a "fetch" button.
 - From a UI perspective, a user should be able to view as many images as they want on a page like a collage. You do not have to worry about the collage saving when the user refreshes the page. You also do not need to worry too much about the design and CSS aspect.
