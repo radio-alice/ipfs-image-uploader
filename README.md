@@ -1,17 +1,14 @@
-## Instructions
+## Spec
 
-First, start off by forking this repository, and cloning it locally.
-
-A user using this program should be able to do the following things:
+A user should be able to:
 
 - Upload one or more image files (simultaneously) and store them on IPFS.
-- Once the images are successfully uploaded and stored, the user should see the images on the screen, as well as their [unique content hashes](https://github.com/multiformats/cid).
-- Fetch an image by its unique hash - this can just be a simple text field where a user can paste in a hash and click a "fetch" button.
-- From a UI perspective, a user should be able to view as many images as they want on a page like a collage. You do not have to worry about the collage saving when the user refreshes the page. You also do not need to worry too much about the design and CSS aspect.
+- See the images and their hashes after uploading (don't worry about fetching them all on load).
+- Fetch an image by its hash.
 
 ##### Uploading to IPFS:
 
-This repository is not intended to gauge your familiarity with IPFS. We've already installed the [`ipfs-http-client`](https://github.com/ipfs/js-ipfs-http-client) for you to use
+We've installed the [`ipfs-http-client`](https://github.com/ipfs/js-ipfs-http-client).
 
 You can use Infura to upload files:
 
@@ -31,11 +28,11 @@ const result = await ipfs.add(<FILE>)
 
 ##### React dropzone
 
-For uploading files, we have used [react-dropzone](https://github.com/react-dropzone/react-dropzone). If you find it helpful, feel free to `npm install` it
+For uploading files, we have used [react-dropzone](https://github.com/react-dropzone/react-dropzone). If you find it helpful, feel free to `npm install` it.
 
 ##### Other external dependencies
 
-Feel free to use any other external dependencies you wish. Of course, make sure there are no known security issues or other problems with any dependencies. You souldn't _need_ to add any dependencies to complete all the user stories listed above.
+Use any external dependencies you wish. Of course, make sure there are no known security issues or other problems with any dependencies. You souldn't _need_ to add any dependencies to complete all the user stories listed above.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
