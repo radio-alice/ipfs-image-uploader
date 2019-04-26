@@ -1,4 +1,4 @@
-## Spec
+## Instructions
 
 A user should be able to:
 
