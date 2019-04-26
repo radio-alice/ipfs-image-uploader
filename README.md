@@ -3,7 +3,7 @@
 A user should be able to:
 
 - Upload one or more image files (simultaneously) and store them on IPFS.
-- See the images and their hashes after uploading (don't worry about fetching them all on load).
+- See the images and their hashes after uploading (don't worry about fetching them all again on load).
 - Fetch an image by its hash.
 
 ##### Uploading to IPFS:
