@@ -26,7 +26,6 @@ class Gallery extends React.Component {
   }
 
   async bufferToIpfs(file) {
-    const hashes = this.state.hashes
     const buffer = Buffer.from(file.target.result)
 
     // create a new ipfs client pointing to infura
@@ -40,7 +39,7 @@ class Gallery extends React.Component {
     const result = await ipfs.add(buffer)
     const hash = result[0].hash
     this.setState({
-      hashes: hashes.concat(hash),
+      hashes: this.state.hashes.concat(hash),
     })
   }
 
