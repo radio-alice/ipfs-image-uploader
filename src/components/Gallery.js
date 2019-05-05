@@ -12,13 +12,8 @@ class Gallery extends React.Component {
     }
   }
 
-  onImageDrop(files) {
-    window.URL = window.URL || window.webkitURL
-
-    this.filesToBuffer(files)
-  }
-
   async filesToBuffer(files) {
+    window.URL = window.URL || window.webkitURL
     for (let i = 0; i < files.length; i++) {
       let url = window.URL.createObjectURL(files[i]);
       let fileReader = new FileReader()
@@ -83,7 +78,7 @@ class Gallery extends React.Component {
     return (
       <main>
         <section className="dropzone">
-          { DropArea(this.onImageDrop.bind(this)) }
+          { DropArea(this.filesToBuffer.bind(this)) }
         </section>
         <section className="searchbar">
           <input type="text" placeholder="enter hash here"
