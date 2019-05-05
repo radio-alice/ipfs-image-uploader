@@ -7,25 +7,28 @@ class Gallery extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      hashes: [],
+      images: [],
     }
   }
 
   onImageDrop(files) {
+    window.URL = window.URL || window.webkitURL
+
     this.filesToBuffer(files)
   }
 
   async filesToBuffer(files) {
     for (let i = 0; i < files.length; i++) {
+      let url = window.URL.createObjectURL(files[i]);
       let fileReader = new FileReader()
       fileReader.onload = (file) => {
-        this.bufferToIpfs(file)
+        this.bufferToIpfs(file, url)
       }
       fileReader.readAsArrayBuffer(files[i])
     }
   }
 
-  async bufferToIpfs(file) {
+  async bufferToIpfs(file, url) {
     const buffer = Buffer.from(file.target.result)
 
     // create a new ipfs client pointing to infura
@@ -39,19 +42,24 @@ class Gallery extends React.Component {
     const result = await ipfs.add(buffer)
     const hash = result[0].hash
     this.setState({
-      hashes: this.state.hashes.concat(hash),
+      images: this.state.images.concat({
+        hash: hash,
+        url: url,
+      }),
     })
   }
 
   render() {
-    const hashes = Array.from(this.state.hashes)
-    const images = hashes.map((hash) => {
-      return <ImageUpload key={hash} hash={hash}></ImageUpload>
+    const images = Array.from(this.state.images)
+    const imageUploads = images.map(image => {
+      return (<ImageUpload key={image.hash}
+                          hash={image.hash}
+                          url={image.url}></ImageUpload>)
     })
     return (
       <main>
         <header>{ DropArea(this.onImageDrop.bind(this)) }</header>
-        <section>{ images }</section>
+        <section>{ imageUploads }</section>
       </main>
     )
   }

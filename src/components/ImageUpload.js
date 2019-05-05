@@ -7,8 +7,10 @@ class ImageUpload extends React.Component {
   render(){
     return (
       <div class="imageContainer">
-        <p>Image Here</p>
-        <p>{this.props.hash}</p>
+        <img src={this.props.url} onLoad={() => {
+          window.URL.revokeObjectURL(this.props.url)
+        }}/>
+        <p>Hash: {this.props.hash}</p>
       </div>
     );
   }
