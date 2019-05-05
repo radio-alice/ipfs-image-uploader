@@ -1,15 +1,17 @@
 import React from 'react';
+import ipfsClient from 'ipfs-http-client'
 import './App.css';
+import Gallery from './components/Gallery';
 
-import YourComponent from './components/YourComponent';
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <p>IPFS Image Uploader!</p>
-        <YourComponent />
       </header>
+      <Gallery />
     </div>
   );
 }
