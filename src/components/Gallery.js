@@ -58,7 +58,10 @@ class Gallery extends React.Component {
     })
     return (
       <main>
-        <header class="dropzone">{ DropArea(this.onImageDrop.bind(this)) }</header>
+        <section class="dropzone">
+          { DropArea(this.onImageDrop.bind(this)) }
+        </section>
+        <section class="searchBar"></section>
         <section class="gallery">{ imageUploads }</section>
       </main>
     )

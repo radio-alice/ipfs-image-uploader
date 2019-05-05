@@ -10,7 +10,11 @@ body {
 
 .dropzone {
   background-color: #9bda81;
-  padding: 20px;
+  cursor: grab;
+}
+.dropzone div, .dropzone p {
+  margin: 0;
+  padding: 15px;
 }
 
 .gallery {
