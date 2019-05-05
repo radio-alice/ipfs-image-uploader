@@ -8,16 +8,39 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.dropzone {
+  background-color: #9bda81;
+  padding: 20px;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #eceffc;
+  padding: 10px;
 }
 
 .imageContainer {
   background-color: #d1d6ec;
   border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #130a77;
   color: #130a77;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 6px;
 }
 .imageContainer img {
-  width: 15%;
+  width: 250px;
+  margin: 10px;
+}
+.imageContainer p {
+  display: inline-block;
+  margin: 10px;
+  font-size: 10px;
 }

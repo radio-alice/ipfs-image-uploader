@@ -6,12 +6,10 @@ function DropArea (onImageDrop) {
     <Dropzone onDrop={onImageDrop}
       accept="image/*" multiple={true}>
       {({getRootProps, getInputProps}) => (
-        <section>
-          <div {...getRootProps()}>
+        <div {...getRootProps()}>
             <input {...getInputProps()} />
             <p>Drag and drop some files here, or click to select files</p>
-          </div>
-        </section>
+        </div>
       )}
     </Dropzone>
   )
