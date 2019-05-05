@@ -8,6 +8,7 @@ class Gallery extends React.Component {
     super(props)
     this.state = {
       images: [],
+      search: "",
     }
   }
 
@@ -49,6 +50,29 @@ class Gallery extends React.Component {
     })
   }
 
+  handleSearchChange(e){
+    this.setState({search: e.target.value})
+  }
+
+  async searchHash(){
+    const hash = this.state.search
+    const ipfs = ipfsClient({
+      host: 'ipfs.infura.io',
+      port: '5001',
+      protocol: 'https',
+    })
+
+    const result = await ipfs.cat(hash)
+    const blob = new Blob([result], {type:"image/*"})
+    const url = window.URL.createObjectURL(blob)
+    this.setState({
+      images: this.state.images.concat({
+        hash: hash,
+        url: url,
+      }),
+    })
+  }
+
   render() {
     const images = Array.from(this.state.images)
     const imageUploads = images.map(image => {
@@ -58,11 +82,16 @@ class Gallery extends React.Component {
     })
     return (
       <main>
-        <section class="dropzone">
+        <section className="dropzone">
           { DropArea(this.onImageDrop.bind(this)) }
         </section>
-        <section class="searchBar"></section>
-        <section class="gallery">{ imageUploads }</section>
+        <section className="searchbar">
+          <input type="text" placeholder="enter hash here"
+            onChange={this.handleSearchChange.bind(this)}/>
+          <input type="submit" value="Search IPFS"
+            onClick={this.searchHash.bind(this)}/>
+        </section>
+        <section className="gallery">{ imageUploads }</section>
       </main>
     )
   }
