@@ -1,5 +1,6 @@
 import React from 'react'
 
+// takes in url/cid and displays image/cid
 class ImageUpload extends React.Component {
   render(){
     return (

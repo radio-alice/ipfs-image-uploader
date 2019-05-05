@@ -3,6 +3,8 @@ import ipfsClient from 'ipfs-http-client'
 import DropArea from './DropArea'
 import ImageUpload from './ImageUpload'
 
+// handles uploading, searching and passing results to image containers
+// pulls img and search data from DropArea and input elements
 class Gallery extends React.Component {
   constructor(props) {
     super(props)
@@ -81,7 +83,7 @@ class Gallery extends React.Component {
           { DropArea(this.filesToBuffer.bind(this)) }
         </section>
         <section className="searchbar">
-          <input type="text" placeholder="enter hash here"
+          <input type="text" placeholder="Enter IPFS Content ID here"
             onChange={this.handleSearchChange.bind(this)}/>
           <input type="submit" value="Search IPFS"
             onClick={this.searchHash.bind(this)}/>

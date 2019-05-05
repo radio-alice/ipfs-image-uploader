@@ -1,6 +1,7 @@
 import React from 'react'
 import Dropzone from 'react-dropzone'
 
+// collects files from user
 function DropArea (onImageDrop) {
   return (
     <Dropzone onDrop={onImageDrop}
