@@ -1,5 +1,4 @@
 import React from 'react';
-import ipfsClient from 'ipfs-http-client'
 import './App.css';
 import Gallery from './components/Gallery';
 

@@ -47,7 +47,7 @@ class Gallery extends React.Component {
   render() {
     const hashes = Array.from(this.state.hashes)
     const images = hashes.map((hash) => {
-      return <li key={hash}>{hash}</li>
+      return <ImageUpload hash={hash}></ImageUpload>
     })
     return (
       <main>
