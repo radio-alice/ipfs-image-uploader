@@ -63,15 +63,20 @@ class Gallery extends React.Component {
       protocol: 'https',
     })
 
-    const result = await ipfs.cat(hash).catch(alert)
-    const blob = new Blob([result], {type:"image/*"})
-    const url = window.URL.createObjectURL(blob)
-    this.setState({
-      images: this.state.images.concat({
-        hash: hash,
-        url: url,
-      }),
-    })
+    try {
+      const result = await ipfs.cat(hash)
+      const blob = new Blob([result], {type:"image/*"})
+      const url = window.URL.createObjectURL(blob)
+      this.setState({
+        images: this.state.images.concat({
+          hash: hash,
+          url: url,
+        }),
+      })
+    }
+    catch(e) {
+      alert(e)
+    }
   }
 
   render() {
