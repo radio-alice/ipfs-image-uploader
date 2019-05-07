@@ -37,14 +37,18 @@ class Gallery extends React.Component {
     })
 
     // use the ipfs.add method to pin files
-    const result = await ipfs.add(buffer)
-    const hash = result[0].hash
-    this.setState({
-      images: this.state.images.concat({
-        hash: hash,
-        url: url,
-      }),
-    })
+    try {
+      const result = await ipfs.add(buffer)
+      const hash = result[0].hash
+      this.setState({
+        images: this.state.images.concat({
+          hash: hash,
+          url: url,
+        }),
+      })
+    } catch(err) {
+      alert(err)
+    }
   }
 
   handleSearchChange(e){
@@ -59,7 +63,7 @@ class Gallery extends React.Component {
       protocol: 'https',
     })
 
-    const result = await ipfs.cat(hash)
+    const result = await ipfs.cat(hash).catch(alert)
     const blob = new Blob([result], {type:"image/*"})
     const url = window.URL.createObjectURL(blob)
     this.setState({
