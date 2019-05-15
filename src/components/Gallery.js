@@ -88,15 +88,17 @@ class Gallery extends React.Component {
     })
     return (
       <main>
-        <section className="dropzone">
-          { DropArea(this.filesToBuffer.bind(this)) }
-        </section>
-        <section className="searchbar">
-          <input type="text" placeholder="Enter IPFS Content ID here"
-            onChange={this.handleSearchChange.bind(this)}/>
-          <input type="submit" value="Search IPFS"
-            onClick={this.searchHash.bind(this)}/>
-        </section>
+        <div className="left">
+          <section className="searchbar">
+            <input type="text" placeholder="Enter IPFS Content ID here"
+              onChange={this.handleSearchChange.bind(this)}/>
+            <input type="submit" value="Search IPFS"
+              onClick={this.searchHash.bind(this)}/>
+          </section>
+          <section className="dropzone">
+            { DropArea(this.filesToBuffer.bind(this)) }
+          </section>
+        </div>
         <section className="gallery">{ imageUploads }</section>
       </main>
     )
